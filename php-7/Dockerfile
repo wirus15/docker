@@ -8,7 +8,7 @@ RUN apt-get dist-upgrade -y
 RUN apt-get install -y git curl nano zlib1g-dev
 
 # install extensions
-RUN docker-php-ext-install zip
+RUN docker-php-ext-install zip mbstring pdo_mysql
 
 # install composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
