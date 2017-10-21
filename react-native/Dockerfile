@@ -11,7 +11,6 @@ RUN apt-get update && \
     unzip -y && \
     apt-get clean
 
-
 # ——————————
 # Install Java.
 # ——————————
@@ -24,10 +23,8 @@ RUN \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk8-installer
 
-
 # Define commonly used JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
-
 
 # ——————————
 # Installs i386 architecture required for running 32 bit Android tools
@@ -39,7 +36,6 @@ RUN dpkg --add-architecture i386 && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get autoremove -y && \
     apt-get clean
-
 
 # ——————————
 # Installs Android SDK
@@ -61,7 +57,6 @@ RUN cd /opt && \
     echo y | android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_API_LEVELS},${ANDROID_BUILD_TOOLS_VERSION} && \
     echo y | android update sdk --no-ui --all --filter "${ANDROID_EXTRA_COMPONENTS}"
 
-
 # ——————————
 # Installs Gradle
 # ——————————
@@ -79,7 +74,6 @@ RUN cd /usr/lib \
 ENV GRADLE_HOME /usr/lib/gradle
 ENV PATH $PATH:$GRADLE_HOME/bin
 
-
 # ——————————
 # Install Node and global packages
 # ——————————
@@ -90,7 +84,6 @@ RUN cd && \
     mv node-v${NODE_VERSION}-linux-x64 /opt/node && \
     rm node-v${NODE_VERSION}-linux-x64.tar.gz
 ENV PATH ${PATH}:/opt/node/bin
-
 
 # ——————————
 # Install Basic React-Native packages
