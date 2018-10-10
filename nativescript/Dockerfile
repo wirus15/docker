@@ -17,7 +17,8 @@ RUN apt-get update && \
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
     apt-get update && \
     apt-get -y install nodejs npm build-essential && \
-    rm -r /var/lib/apt/lists/*
+    rm -r /var/lib/apt/lists/* && \
+    npm install -g npm@latest
 
 # JAVA
 RUN apt-get update && \
@@ -30,7 +31,7 @@ RUN apt-get update && \
 RUN export JAVA_HOME=$(update-alternatives --query javac | sed -n -e 's/Best: *\(.*\)\/bin\/javac/\1/p')
 
 # NativeScript
-RUN npm install -g --unsafe-perm nativescript@latest && \
+RUN npm install -g --unsafe-perm nativescript@latest @angular/cli @nativescript/schematics && \
     tns error-reporting disable
 
 # Android SDK
