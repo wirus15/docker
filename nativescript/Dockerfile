@@ -5,7 +5,7 @@ RUN useradd -ms /bin/bash nativescript
 
 # Utilities
 RUN apt-get update && \
-    apt-get -y install apt-utils apt-transport-https unzip gnupg2 curl usbutils --no-install-recommends && \
+    apt-get -y install apt-utils apt-transport-https unzip gnupg2 git curl usbutils --no-install-recommends && \
     rm -r /var/lib/apt/lists/*
 
 # Libs
