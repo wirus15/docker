@@ -1,4 +1,4 @@
-FROM node:6-slim
+FROM node:lts-jessie-slim
 MAINTAINER Maciej Krawczyk <wirus15@gmail.com>
 
 RUN apt-get update
